@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101b17">
+  <link rel="icon" href="data:,">
+  <title>The Forest — A pocket-sized night walk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✳</span><div><strong>THE FOREST</strong><small>A NIGHT WALK</small></div></div>
+      <div class="top-actions"><div class="objective" aria-live="polite"><span class="sun-mark">✦</span><span id="objective">Find the lost lights</span></div><button id="soundBtn" class="icon-btn" aria-label="Toggle sound">♫</button><button id="pauseBtn" class="icon-btn" aria-label="Pause game">Ⅱ</button></div>
+    </header>
+    <section class="play-area" aria-label="Game area">
+      <canvas id="game" aria-label="Top-down forest game"></canvas>
+      <div class="hud">
+        <div class="hearts" id="hearts" aria-label="Health"></div>
+        <div class="progress"><span class="progress-icon">✧</span><b id="count">0</b><span class="progress-divider">/</span><span>4 lights</span></div>
+        <div class="clock"><span class="clock-dot"></span><span id="timer">03:00</span></div>
+      </div>
+      <div class="hint" id="hint">The forest is listening.</div>
+      <div class="touch-controls" aria-label="Touch controls">
+        <div class="dpad">
+          <button class="pad up" data-dir="up" aria-label="Move up">▲</button>
+          <button class="pad left" data-dir="left" aria-label="Move left">◀</button>
+          <button class="pad down" data-dir="down" aria-label="Move down">▼</button>
+          <button class="pad right" data-dir="right" aria-label="Move right">▶</button>
+        </div>
+        <div class="action-controls"><button id="lightBtn" class="action light-action" aria-label="Use lantern pulse"><span>✦</span><small>LIGHT</small></button><button id="runBtn" class="action run-action" aria-label="Run"><span>»</span><small>RUN</small></button></div>
+      </div>
+      <div class="overlay" id="overlay">
+        <div class="dialog intro" id="introDialog">
+          <div class="eyebrow"><span></span> A SMALL GAME ABOUT FINDING YOUR WAY <span></span></div>
+          <div class="title-flower">✳</div>
+          <h1>The<br><em>Forest</em></h1>
+          <p class="intro-copy">Four little lights have wandered off into the dark.<br>Bring them home before the night takes over.</p>
+          <button class="primary-btn" id="startBtn">STEP INTO THE WOODS <span>↗</span></button>
+          <div class="controls-note"><span>WASD / ARROWS</span> to walk <i>·</i> <span>SPACE</span> lantern pulse <i>·</i> <span>SHIFT</span> run</div>
+          <div class="mobile-note">Use the on-screen controls to explore</div>
+        </div>
+        <div class="dialog end-dialog hidden" id="endDialog">
+          <div class="eyebrow"><span></span><span id="endKicker">THE WOODS ARE QUIET</span><span></span></div>
+          <div class="title-flower" id="endIcon">✧</div><h2 id="endTitle">You found your way.</h2>
+          <p id="endCopy">The little lights glow safely by the fire.</p>
+          <button class="primary-btn" id="againBtn">WALK AGAIN <span>↗</span></button>
+        </div>
+      </div>
+      <div class="toast" id="toast" aria-live="polite"></div>
+    </section>
+    <footer><span>FOLLOW THE FIREFLIES · FIND THE OLD CAMP</span><span class="footer-right">A QUIET LITTLE ADVENTURE <b>✳</b></span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
