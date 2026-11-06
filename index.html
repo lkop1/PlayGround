@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#101d17">
+  <title>Wildwood — Find your way home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Wildwood forest game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Wildwood home"><span class="brand-mark">✳</span><span>WILDWOOD</span></a>
+      <div class="top-actions">
+        <div class="room-pill"><span class="live-dot"></span><span id="roomLabel">SOLO FOREST</span></div>
+        <button id="soundBtn" class="icon-btn" aria-label="Toggle sound">♫</button>
+        <button id="menuBtn" class="icon-btn" aria-label="Open menu">☰</button>
+      </div>
+    </header>
+
+    <section id="welcome" class="welcome-panel">
+      <div class="eyebrow"><span></span> A LITTLE ADVENTURE, TOGETHER</div>
+      <h1>Find your<br><em>way home.</em></h1>
+      <p class="welcome-copy">A quiet forest. A long way back. Gather what you need, keep the fire alive, and look out for each other.</p>
+      <div class="welcome-actions">
+        <button id="playBtn" class="primary-btn">Enter the forest <span>↗</span></button>
+        <button id="partyBtn" class="secondary-btn"><span class="people-icon">♧</span> Play with a friend</button>
+      </div>
+      <div class="welcome-foot"><span class="keycap">W A S D</span> or <span class="keycap">↑ ↓ ← →</span> to wander <i></i> Made for the small screen</div>
+    </section>
+
+    <section class="hud hidden" id="hud">
+      <div class="day-card"><span class="sun-icon" id="timeIcon">☼</span><div><small id="timePhase">MORNING</small><strong id="dayLabel">DAY 1</strong></div><div class="day-meter"><i id="dayProgress"></i></div></div>
+      <div class="objective-card"><span class="objective-icon">⌖</span><div><small>YOUR LITTLE PLAN</small><strong id="objective">Find the trail home</strong></div></div>
+      <div class="status-card"><div class="status-row"><span>✦</span><div class="status-track"><i id="healthFill"></i></div><b id="healthValue">100</b></div><div class="status-row"><span>♡</span><div class="status-track warm"><i id="warmthFill"></i></div><b id="warmthValue">100</b></div></div>
+      <div class="inventory-card"><small>IN YOUR PACK</small><div><span>▰ <b id="woodCount">0</b></span><span>● <b id="berryCount">0</b></span></div></div>
+    </section>
+
+    <div id="toast" class="toast hidden"></div>
+    <div id="interactionHint" class="interaction-hint hidden"><span class="keycap">E</span> <span id="hintText">Pick up</span></div>
+
+    <section id="partyModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card">
+        <button class="close-btn" data-close aria-label="Close">×</button>
+        <div class="modal-icon">♧</div><div class="eyebrow">BETTER WITH A FRIEND</div>
+        <h2>Share a little<br><em>wilderness.</em></h2>
+        <p>Start a forest and invite someone in. Open the invite link in another tab or window in this browser to wander together.</p>
+        <div class="room-code-wrap"><small>YOUR FOREST CODE</small><div><strong id="roomCode">— — — —</strong><button id="copyBtn">Copy invite</button></div></div>
+        <button id="createRoomBtn" class="primary-btn full-btn">Create a forest <span>↗</span></button>
+        <div class="modal-foot">Friends in the same room appear as little fireflies on your map.</div>
+      </div>
+    </section>
+
+    <section id="pauseModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card pause-card"><button class="close-btn" data-close aria-label="Close">×</button><div class="eyebrow">TAKE A BREATH</div><h2>Rest a moment.</h2><p>Your forest will be right here when you’re ready.</p><button id="resumeBtn" class="primary-btn full-btn">Back to the trail <span>↗</span></button><button id="restartBtn" class="text-btn">Start a new forest</button></div>
+    </section>
+
+    <div id="touchControls" class="touch-controls hidden">
+      <div id="joystick" class="joystick"><div class="joy-ring"></div><div id="joyKnob" class="joy-knob"></div></div>
+      <button id="actionBtn" class="action-btn"><span>＋</span><small>GATHER</small></button>
+    </div>
+    <div class="controls-note" id="controlsNote"><span class="keycap">E</span> Gather / use <span class="dot-sep">·</span> <span class="keycap">F</span> Build a campfire <span class="dot-sep">·</span> <span class="keycap">Shift</span> Run</div>
+    <div id="chatBar" class="chat-bar hidden"><span>✧</span><input id="chatInput" maxlength="90" placeholder="Say something kind…" aria-label="Message your friends"><button id="sendChat">SEND</button></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
